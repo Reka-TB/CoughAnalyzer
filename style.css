@@ -11031,38 +11031,135 @@ body {
 
 }
 
-/* =========================================
-   FINAL MOBILE FIX — HERO AUDIO ANALYSIS
-   Kecilkan visual + caption agar tidak
-   bertabrakan dengan judul PENGEMBANGAN REKA TB
-========================================= */
 
+/* =========================================================
+   FINAL MOBILE PATCH — KEEP ALL HERO ANIMATIONS
+   Base CSS above is preserved. This block only makes the
+   mobile hero smaller so nothing gets cut off.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* MOBILE NAVBAR */
 @media (max-width: 800px) {
+    .nav-container {
+        width: calc(100% - 24px);
+        height: 64px;
+    }
+
+    .logo {
+        gap: 7px;
+        min-width: 0;
+        max-width: calc(100% - 52px);
+    }
+
+    .logo-mark {
+        width: 31px !important;
+        height: 31px !important;
+        flex: 0 0 31px;
+    }
+
+    .logo-text {
+        font-size: 12px !important;
+        letter-spacing: -.35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mobile-menu {
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+    }
+}
+
+/* BERANDA / HERO — TEXT NEVER CUT OFF */
+@media (max-width: 800px) {
+    .hero {
+        width: 100%;
+        min-height: auto;
+        padding: 105px 18px 60px !important;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        flex: none;
+        overflow: visible;
+    }
+
+    .hero-title {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 20px;
+        padding: 0 !important;
+        font-size: clamp(33px, 10vw, 48px) !important;
+        line-height: 1.04;
+        letter-spacing: -2px !important;
+        overflow: visible;
+    }
+
+    .hero-title > span,
+    .hero-title-line {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+        font-size: inherit !important;
+        line-height: 1.04;
+        letter-spacing: inherit !important;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    .hero-description {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 18px;
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .hero-meta {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 24px;
+        gap: 8px;
+    }
+
+    /* THE WHOLE ANIMATED VISUAL IS SMALLER */
     .hero-visual {
-        width: min(330px, 84vw) !important;
-        height: min(330px, 84vw) !important;
-        margin-top: 0 !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        width: min(280px, 78vw) !important;
+        height: min(280px, 78vw) !important;
+        max-width: 100%;
+        margin: 8px auto 0 !important;
+        flex: 0 0 auto !important;
+        align-self: center;
         transform: none !important;
+        overflow: visible;
     }
 
-    .recording-visual {
-        width: 250px !important;
-        height: 250px !important;
-    }
-
-    .recording-visual::before {
-        width: 278px !important;
-        height: 278px !important;
-    }
-
+    /* Smaller animated circles */
     .circle-large {
         inset: 12px !important;
     }
 
     .circle-medium {
-        inset: 58px !important;
+        inset: 50px !important;
     }
 
     .orbit-one {
@@ -11070,136 +11167,188 @@ body {
     }
 
     .orbit-two {
-        inset: 45px !important;
+        inset: 38px !important;
     }
 
-    .ring-a {
-        width: 220px !important;
-        height: 220px !important;
+    /* Smaller animated microphone */
+    .hero-mic {
+        width: 88px !important;
+        height: 88px !important;
     }
 
-    .ring-b {
-        width: 178px !important;
-        height: 178px !important;
+    .hero-mic::before {
+        inset: -9px !important;
     }
 
-    .ring-c {
-        width: 142px !important;
-        height: 142px !important;
+    .hero-mic::after {
+        inset: -18px !important;
     }
 
-    .recording-center {
-        width: 98px !important;
-        height: 98px !important;
+    .hero-mic-glow {
+        inset: -13px !important;
+        filter: blur(6px);
     }
 
-    .recording-mic {
-        width: 46px !important;
-        height: 46px !important;
+    .hero-mic svg {
+        width: 34px !important;
+        height: 34px !important;
     }
 
-    .recording-mic svg {
-        width: 27px !important;
-        height: 27px !important;
-    }
-
-    .recording-glow {
-        width: 170px !important;
-        height: 170px !important;
-    }
-
-    .hero-waveform {
-        width: 255px !important;
-        height: 70px !important;
+    /* Smaller animated waveform */
+    .sound-bars {
+        width: min(155px, 55vw) !important;
+        height: 38px !important;
+        bottom: 21px !important;
         gap: 3px !important;
     }
 
-    .hero-waveform span {
-        width: 3px !important;
-    }
-
-    .recording-caption {
-        bottom: -7px !important;
-        padding: 6px 10px !important;
-        font-size: 6px !important;
-        letter-spacing: 1px !important;
-        white-space: nowrap !important;
-        transform: scale(.9) !important;
-        transform-origin: center !important;
+    .sound-bars span {
+        width: 2.5px !important;
     }
 }
 
-@media (max-width: 600px) {
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+    .nav-container {
+        width: calc(100% - 20px);
+    }
+
+    .logo-mark {
+        width: 29px !important;
+        height: 29px !important;
+        flex-basis: 29px;
+    }
+
+    .logo-text {
+        font-size: 11px !important;
+    }
+
+    .hero {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-bottom: 50px !important;
+    }
+
+    .hero-title {
+        font-size: clamp(31px, 9.8vw, 42px) !important;
+        letter-spacing: -1.7px !important;
+    }
+
+    .hero-description {
+        font-size: 12.5px;
+    }
+
     .hero-visual {
-        width: min(300px, 82vw) !important;
-        height: min(300px, 82vw) !important;
+        width: min(260px, 76vw) !important;
+        height: min(260px, 76vw) !important;
+        margin-top: 6px !important;
     }
 
-    .recording-visual {
-        width: 228px !important;
-        height: 228px !important;
+    .circle-large {
+        inset: 10px !important;
     }
 
-    .recording-visual::before {
-        width: 252px !important;
-        height: 252px !important;
+    .circle-medium {
+        inset: 46px !important;
     }
 
-    .recording-center {
-        width: 90px !important;
-        height: 90px !important;
+    .orbit-two {
+        inset: 35px !important;
     }
 
-    .recording-mic {
-        width: 42px !important;
-        height: 42px !important;
+    .hero-mic {
+        width: 82px !important;
+        height: 82px !important;
     }
 
-    .recording-mic svg {
-        width: 25px !important;
-        height: 25px !important;
+    .hero-mic svg {
+        width: 31px !important;
+        height: 31px !important;
     }
 
-    .hero-waveform {
-        width: 225px !important;
-        height: 62px !important;
-    }
-
-    .recording-caption {
-        font-size: 5.5px !important;
-        padding: 5px 8px !important;
-        bottom: -5px !important;
-        transform: scale(.88) !important;
+    .sound-bars {
+        width: 142px !important;
+        bottom: 19px !important;
     }
 }
 
 @media (max-width: 380px) {
+    .hero-title {
+        font-size: 29px !important;
+        letter-spacing: -1.4px !important;
+    }
+
     .hero-visual {
-        width: min(275px, 80vw) !important;
-        height: min(275px, 80vw) !important;
+        width: min(240px, 72vw) !important;
+        height: min(240px, 72vw) !important;
     }
 
-    .recording-visual {
-        width: 210px !important;
-        height: 210px !important;
+    .circle-medium {
+        inset: 42px !important;
     }
 
-    .recording-visual::before {
-        width: 232px !important;
-        height: 232px !important;
+    .orbit-two {
+        inset: 32px !important;
     }
 
-    .recording-center {
-        width: 84px !important;
-        height: 84px !important;
+    .hero-mic {
+        width: 76px !important;
+        height: 76px !important;
     }
 
-    .hero-waveform {
-        width: 205px !important;
+    .hero-mic svg {
+        width: 29px !important;
+        height: 29px !important;
     }
 
-    .recording-caption {
-        font-size: 5px !important;
-        letter-spacing: .8px !important;
+    .sound-bars {
+        width: 130px !important;
+        height: 34px !important;
+        bottom: 17px !important;
+    }
+}
+
+/* =========================================================
+   TBC EDUCATION CARDS — MOBILE SAME RHYTHM
+   Tuberkulosis card follows the same vertical arrangement
+   as the two cards underneath it.
+========================================================= */
+@media (max-width: 800px) {
+    .tbc-intro-content > .tbc-intro-main {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        align-content: start !important;
+        align-items: start !important;
+        padding: 22px !important;
+    }
+
+    .tbc-intro-content > .tbc-intro-main > .tbc-card-icon {
+        width: 42px !important;
+        height: 42px !important;
+        min-width: 42px !important;
+        min-height: 42px !important;
+        margin: 0 0 15px 0 !important;
+        justify-self: start !important;
+    }
+
+    .tbc-intro-content > .tbc-intro-main > div:not(.tbc-card-icon) {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .tbc-intro-content > .tbc-intro-main .tbc-card-label {
+        margin: 0 0 8px 0 !important;
+        line-height: 1.2 !important;
+    }
+
+    .tbc-intro-content > .tbc-intro-main h3 {
+        margin: 0 !important;
+        min-height: 0 !important;
+    }
+
+    .tbc-intro-content > .tbc-intro-main p {
+        margin-top: 12px !important;
     }
 }
